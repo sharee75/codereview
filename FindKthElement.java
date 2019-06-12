@@ -35,8 +35,7 @@ public class FindKthElement {
   public ListNode Find(ListNode listNode, int k) {
     ListNode reversedList = reverseLinkedList.reverseIterative(listNode);
     ListNode result = reversedList;
-    while (k > 0)
-    {
+    while (k > 0) {
       result = result.getNext();
       if (result == null)
         throw new IndexOutOfBoundsException();
@@ -56,8 +55,7 @@ public class FindKthElement {
     ListNode result = listNode;
     int n = size - 1 - k;
     // System.out.println("n=" + n);
-    while (n > 0)
-    {
+    while (n > 0) {
       result = result.getNext();
       n--;
     }
@@ -70,16 +68,17 @@ public class FindKthElement {
    * the complexity order is equals to O(1).
    */
   public ListNode Find3(ListNode listNode, int k) {
-    ListNode pointer2 = listNode;
-    for (int i = 0; i <= k; i++)
-    {
+	if (listNode == null ) throw new NullPointerException();
+    
+	ListNode pointer2 = listNode;
+    	
+    for (int i = 0; i <= k; i++) {
       if (pointer2 == null) throw new IndexOutOfBoundsException();
       pointer2 = pointer2.getNext();
     }
 
     ListNode result = listNode;
-    while (pointer2 != null)
-    {
+    while (pointer2 != null) {
       result = result.getNext();
       pointer2 = pointer2.getNext();
     }
@@ -88,9 +87,7 @@ public class FindKthElement {
 
   private int CalculateListSize(ListNode listNode) {
     int size = 0;
-    int length = 0;
-    while (listNode != null)
-    {
+    while (listNode != null) {
       size++;
       listNode = listNode.getNext();
     }

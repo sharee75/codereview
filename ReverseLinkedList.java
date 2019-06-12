@@ -50,15 +50,11 @@ public class ReverseLinkedList {
   }
 
   private ListNode<Integer> reverseRecursiveInner(ListNode head) {
-    if (head == null || head.getNext() == null)
-    {
-      return head;
-    } else
-    {
-      ListNode reversedList = reverseRecursiveInner(head.getNext());
-      head.getNext().setNext(head);
-      head.setNext(null);
-      return reversedList;
-    }
+    if (head == null || head.getNext() == null) return head;
+	
+    ListNode reversedList = reverseRecursiveInner(head.getNext());
+	head.getNext().setNext(head);
+	head.setNext(null);
+	return reversedList;
   }
 }

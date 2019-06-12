@@ -34,13 +34,11 @@ public class SplitArray {
 	 */
 	public void SplitSorting(int array[]) {
 		boolean flag = true;
-		while (flag)
-		{
+		while (flag) {
 			flag = false;
-			for (int j = 0; j < array.length - 1; j++)
-			{
-				if (array[j] > array[j + 1])
-				{
+			
+			for (int j = 0; j < array.length - 1; j++) {
+				if (array[j] > array[j + 1]) {
 					Swap(array, j, j + 1);
 					// System.out.println("flag=" + flag);
 					flag = true;
@@ -59,21 +57,17 @@ public class SplitArray {
 	public void SplitSwappingIterative(int array[]) {
 		int left = 0;
 		int right = array.length - 1;
-		while (left < right)
-		{
+		
+		while (left < right) {
 			boolean shouldChangeLeft = array[left] >= 0;
 			boolean shouldChangeRight = array[right] < 0;
-			if (shouldChangeLeft && shouldChangeRight)
-			{
+			if (shouldChangeLeft && shouldChangeRight) {
 				Swap(array, left, right);
 				left++;
 				right--;
-			} else
-			{
-				if (!shouldChangeLeft)
-					left++;
-				else if (!shouldChangeRight)
-					right--;
+			} else {
+				if (!shouldChangeLeft) left++;
+				else if (!shouldChangeRight) right--;
 			}
 		}
 	}
@@ -85,11 +79,11 @@ public class SplitArray {
 	public void SplitSwappingPartition(int array[]) {
 		int left = 0;
 		int right = array.length - 1;
-		while (left < right)
-		{
-			while (array[left] < 0 && left < right)
+		
+		while (left < right){
+			while (array[left] < 0 && left < right) 
 				left++;
-			while (array[right] >= 0 && left < right)
+			while (array[right] >= 0 && left < right) 
 				right--;
 			if (left < right)
 			{

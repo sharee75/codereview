@@ -52,13 +52,16 @@ public class ListNode<T> {
     if (!(o instanceof ListNode)) return false;
 
     ListNode listNode = (ListNode) o;
-
+    
+    if (data == null) return false;
     if (!data.equals(listNode.data)) return false;
 
     return true;
   }
 
   @Override public int hashCode() {
+	if (data == null) return 0;
+	
     return data.hashCode();
   }
 
